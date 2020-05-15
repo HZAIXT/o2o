@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 映射配置: namespace设置命名空间 -->
+<mapper namespace="com.zhou.o2o.dao.AreaDao">
+    <!-- 查询:
+        resultType的返回值中，我们在spring-dao.xml中已经配置别名，
+        可以直接写实体类 Area，但是为了语句清晰，建议写全包名
+     -->
+    <select id="queryArea" resultType="com.zhou.o2o.entity.Area">
+		SELECT area_id,area_name,
+			   priority,create_time,last_edit_time
+		FROM tb_area
+		ORDER BY priority DESC
+	</select>
+</mapper>

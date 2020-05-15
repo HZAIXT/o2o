@@ -1,0 +1,6 @@
+2020-05-15 14:14:46.888 [main] DEBUG com.zhou.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?, ?,?) 
+2020-05-15 14:14:46.950 [main] DEBUG com.zhou.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), 叫了只鸡(String), 困了、累了，那就叫只鸡吧！(String), 广州市 天河区 天河公园 (String), 010-6666666(String), test(String), null, 2020-05-15 14:14:46.09(Timestamp), null, 0(Integer), 审核中(String)
+2020-05-15 14:14:47.022 [main] DEBUG com.zhou.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2020-05-15 14:33:44.473 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? where shop_id=? 
+2020-05-15 14:33:44.519 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 国庆大促销，买一送一加饮料！(String), 广州市 白云区  白云公园 (String), 2020-05-15 14:33:43.78(Timestamp), 1(Long)
+2020-05-15 14:33:44.589 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
