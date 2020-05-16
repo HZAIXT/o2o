@@ -18,7 +18,7 @@ public class PathUtil {
         String basePath = "";
         //根据不同的操作系统选择不同的存储路径
         if(os.toLowerCase().startsWith("win")){
-            basePath = "D:/projectdev/image/";
+            basePath = "B:/projectdev/image/";
         }else{
             basePath = "/home/huangzhou/image/";
         }
@@ -34,7 +34,7 @@ public class PathUtil {
      * @return  图片存储路径
      */
     public static String getShopImagePath(long shopId){
-        String imagePath = "/upload/item/shop/" + shopId + "/";
+        String imagePath = "upload/item/shop/" + shopId + "/";
         return imagePath.replace("/",seperator);
     }
 }

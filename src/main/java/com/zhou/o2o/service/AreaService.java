@@ -5,7 +5,7 @@ import com.zhou.o2o.entity.Area;
 import java.util.List;
 
 /**
- * 测试服务层
+ * 区域服务层接口
  */
 public interface AreaService {
     List<Area> getAreaList();
