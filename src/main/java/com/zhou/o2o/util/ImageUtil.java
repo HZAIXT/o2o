@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -51,15 +52,15 @@ public class ImageUtil {
 
     /**
      * 工具类1：处理缩略图，生成新的图片对象,并返回新生成图片的相对值路径
-     * @param thumbnail  经过处理的文件流
+     * @param thumbnailInputStream  经过处理的文件流
      * @param targetAddr 图片在Tomcat服务器下保存的相对路径地址
      * @return
      */
-    public static String generateThumbnail(File thumbnail,String targetAddr) throws IOException{
+    public static String generateThumbnail(InputStream thumbnailInputStream,String fileName, String targetAddr) throws IOException{
         //1.获取随机生成的文件名，防止传递过来的文件重名
         String realFileName = getRandomFileName();
         //2.获取用户传递过来的文件扩展名
-        String extension = getFileExtension(thumbnail);
+        String extension = getFileExtension(fileName);
         //3.targetAddr这个路径的目录有时是不存在的，需要将这个目录创建出来
         makeDirPath(targetAddr);
         //4.缩略图的相对路径：   图片在Tomcat服务器下保存的相对路径地址 + 随机文件名 + 扩展名
@@ -79,7 +80,7 @@ public class ImageUtil {
              *  watermark:给图片添加水印  参数1：水印的位置 参数2：指定水印图片的路径  参数3:定义图片透明度
              *  outputQuality:压缩比例   toFile:添加水印后的图片输出的地址
              */
-            Thumbnails.of(thumbnail).size(1080,1080 )
+            Thumbnails.of(thumbnailInputStream).size(1080,1080 )
                     .watermark(Positions.BOTTOM_RIGHT,ImageIO.read(new File(basePath+"/watermark.jpg"))
                             ,0.25f).outputQuality(0.8f).toFile(dest);
         }catch (IOException e){
@@ -100,7 +101,7 @@ public class ImageUtil {
      * 工具类服务方法1：生成随机的文件名，当前年月日小时分钟秒+五位随机数
      * @return
      */
-    private static String getRandomFileName() {
+    public static String getRandomFileName() {
         //获取随机的五位数 10000 - 99999
         int rannum = r.nextInt(89999) + 10000;
         //获取当前时间格式
@@ -129,14 +130,12 @@ public class ImageUtil {
 
     /**
      * 工具类服务方法3：获取输入文件流的扩展名
-     * @param cFile
+     * @param fileName
      * @return
      */
-    private static String getFileExtension(File cFile) {
-        //获取输入流的文件名
-        String originalFileName = cFile.getName();
+    private static String getFileExtension(String  fileName) {
         //获取文件的扩展名并返回
-        return originalFileName.substring(originalFileName.lastIndexOf("."));
+        return fileName.substring(fileName.lastIndexOf("."));
     }
 
 

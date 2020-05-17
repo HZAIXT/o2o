@@ -7,10 +7,15 @@ import com.zhou.o2o.entity.PersonInfo;
 import com.zhou.o2o.entity.Shop;
 import com.zhou.o2o.entity.ShopCategory;
 import com.zhou.o2o.enums.ShopSateEnum;
+import com.zhou.o2o.exceptions.ShopOperationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +24,7 @@ public class ShopServiceTest extends BaseTest {
     private  ShopService shopService;
 
     @Test
-    public void testAddShop() {
+    public void testAddShop() throws ShopOperationException,FileNotFoundException {
         //准备添加店铺所需要准备的两个对象:Shop、File
 
         //准备Shop店铺对象
@@ -38,18 +43,20 @@ public class ShopServiceTest extends BaseTest {
         shop.setOwner(owner);
         shop.setArea(area);
         shop.setShopCategory(shopCategory);
-        shop.setShopName("测试的店铺2");//店铺名称
-        shop.setShopDesc("test1");//店铺描述
-        shop.setShopAddr("test1");//店铺地址
-        shop.setPhone("test1");//店铺联系方式
+        shop.setShopName("测试的店铺4");//店铺名称
+        shop.setShopDesc("test4");//店铺描述
+        shop.setShopAddr("test4");//店铺地址
+        shop.setPhone("test4");//店铺联系方式
+        shop.setCreateTime(new Date());
         shop.setEnableStatus(ShopSateEnum.CHECK.getState());//店铺可用状态
         shop.setAdvice("审核中");//超级管理员给店铺的提醒
 
-        //准备 File对象
+        //准备 InputStream对象
         File shopImg = new File("B:/aaa.jpg");
+        InputStream is =new FileInputStream(shopImg);
 
         //注册店铺
-        ShopExecution shopExecution = shopService.addShop(shop, shopImg);
+        ShopExecution shopExecution = shopService.addShop(shop, is,shopImg.getName());
         assertEquals(ShopSateEnum.CHECK.getState(), shopExecution.getState());
     }
 }

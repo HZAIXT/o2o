@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 
 /**
@@ -28,12 +28,12 @@ public class ShopServiceImpl implements ShopService {
     /**
      * 店铺的注册方法
      * @param shop  店铺对象
-     * @param shopImg 店铺图片
+     * @param shopImgInputStream 店铺图片
      * @return 店铺的数据传输类当前状态
      */
     @Override
     @Transactional
-    public ShopExecution addShop(Shop shop, File shopImg) {
+    public ShopExecution addShop(Shop shop, InputStream shopImgInputStream,String fileName) {
         /**
          * 店铺注册步骤:
          *  1.将店铺的信息插入到数据库中并返回店铺的id
@@ -68,10 +68,10 @@ public class ShopServiceImpl implements ShopService {
             }else{
                 //2.根据店铺的id去创建出存储图片的文件夹并处理存储的图片
                 //2.1判断传入的文件是否为空，不为在讲店铺相关的文件存储到店铺里面
-                if(shopImg != null){
+                if(shopImgInputStream != null){
                     //存储图片
                     try{
-                        addShopImg(shop,shopImg);
+                        addShopImg(shop, shopImgInputStream,fileName);
                     }catch (Exception e){
                         throw new ShopOperationException("addShopImg error: " + e.getMessage());
                     }
@@ -84,6 +84,7 @@ public class ShopServiceImpl implements ShopService {
             }
         }catch (Exception e){
             //处理异常
+            e.printStackTrace();
             throw new ShopOperationException("addShop error:" + e.getMessage());
         }
         //返回一个店铺的数据传输成功状态
@@ -91,11 +92,11 @@ public class ShopServiceImpl implements ShopService {
     }
 
     //添加图片
-    private void addShopImg(Shop shop, File shopImg) throws IOException {
+    private void addShopImg(Shop shop,InputStream shopImgInputStream,String fileName) throws IOException {
         //获取shop图片目录的相对值路径
         String dest = PathUtil.getShopImagePath(shop.getShopId());
         //存储图片并返回相应的相对值路径
-        String shopImgAddr = ImageUtil.generateThumbnail(shopImg,dest);
+        String shopImgAddr = ImageUtil.generateThumbnail(shopImgInputStream,fileName,dest);
         //更改图片地址
         shop.setShopImg(shopImgAddr);
     }
