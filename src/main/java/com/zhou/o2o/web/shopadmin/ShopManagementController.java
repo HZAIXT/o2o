@@ -2,9 +2,13 @@ package com.zhou.o2o.web.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhou.o2o.dto.ShopExecution;
+import com.zhou.o2o.entity.Area;
 import com.zhou.o2o.entity.PersonInfo;
 import com.zhou.o2o.entity.Shop;
+import com.zhou.o2o.entity.ShopCategory;
 import com.zhou.o2o.enums.ShopSateEnum;
+import com.zhou.o2o.service.AreaService;
+import com.zhou.o2o.service.ShopCategoryService;
 import com.zhou.o2o.service.ShopService;
 import com.zhou.o2o.util.HttpServletRequestUtil;
 import com.zhou.o2o.util.ImageUtil;
@@ -20,7 +24,9 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,6 +38,38 @@ public class ShopManagementController {
 
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private ShopCategoryService shopCategoryService;
+    @Autowired
+    private AreaService areaService;
+
+    /**
+     * 获取店铺分类信息以及店铺区域信息
+     * @return
+     */
+    @RequestMapping(value = "/getshopinitinfo",method = RequestMethod.GET)
+    @ResponseBody
+    private Map<String,Object> getShopInitInfo(){
+        Map<String,Object> modelMap = new HashMap<String,Object>();
+
+        List<ShopCategory> shopCategoryList = new ArrayList<ShopCategory>();
+        List<Area> areaList = new ArrayList<Area>();
+
+        try{
+            //获取全部Category
+            shopCategoryList = shopCategoryService.getShopCategoryList(new ShopCategory());
+            //获取全部Area
+            areaList = areaService.getAreaList();
+            modelMap.put("shopCategoryList",shopCategoryList);
+            modelMap.put("areaList",areaList);
+            modelMap.put("success",true);
+        }catch (Exception e){
+            modelMap.put("success",false);
+            modelMap.put("errMsg",e.getMessage());
+        }
+        return modelMap;
+    }
+
 
     /**
      * 店铺注册
