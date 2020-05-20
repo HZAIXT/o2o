@@ -8,6 +8,7 @@ $(function () {
     // 编辑店铺信息的URL
     var registerShopUrl = '/o2o/shopadmin/registershop';
 
+    alert(initUrl);
     //js文件一加载的时候就调用getShopInitInfo对店铺信息进行初始化
     getShopInitInfo();
 
@@ -104,8 +105,6 @@ $(function () {
                 } else {
                     $.toast('提交失败！' + data.errMsg);
                 }
-                // 点击验证码图片的时候，注册码会改变
-                $('#captcha_img').click();
             }
         });
     });

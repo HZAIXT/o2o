@@ -10,6 +10,7 @@ import com.zhou.o2o.enums.ShopSateEnum;
 import com.zhou.o2o.service.AreaService;
 import com.zhou.o2o.service.ShopCategoryService;
 import com.zhou.o2o.service.ShopService;
+import com.zhou.o2o.util.CodeUtil;
 import com.zhou.o2o.util.HttpServletRequestUtil;
 import com.zhou.o2o.util.ImageUtil;
 import com.zhou.o2o.util.PathUtil;
@@ -80,6 +81,14 @@ public class ShopManagementController {
     @ResponseBody
     private Map<String,Object>  registerShop(HttpServletRequest request){
         Map<String,Object> modelMap = new HashMap<String,Object>();
+        //判断验证码
+        if(!CodeUtil.checkVerifyCode(request)){
+            modelMap.put("success",false);
+            modelMap.put("errMsg","输入错误的验证码");
+            return modelMap;
+        }
+
+
         //1.接收前端传来的店铺信息并转换成对应的实体类，并且接收到前端传过来的文件流接收到shopImg里面去
         String shopStr = HttpServletRequestUtil.getString(request,"shopStr");
         //通过jackson-databind将POJO和JOSIN之间进行转换
