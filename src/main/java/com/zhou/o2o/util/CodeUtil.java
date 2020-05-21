@@ -11,7 +11,7 @@ public class CodeUtil {
     public static boolean checkVerifyCode(HttpServletRequest request){
         //从会话中获取正确的验证码
         String verifyCodeExpected = (String)request.getSession().getAttribute(
-                Constants.KAPTCHA_SESSION_KEY);
+                com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
         //通过工具类获取前端的验证码
         String verifyCodeActual = HttpServletRequestUtil.getString(request,"verifyCodeActual");
         //比较

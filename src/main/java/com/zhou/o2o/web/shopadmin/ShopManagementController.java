@@ -88,7 +88,6 @@ public class ShopManagementController {
             return modelMap;
         }
 
-
         //1.接收前端传来的店铺信息并转换成对应的实体类，并且接收到前端传过来的文件流接收到shopImg里面去
         String shopStr = HttpServletRequestUtil.getString(request,"shopStr");
         //通过jackson-databind将POJO和JOSIN之间进行转换
