@@ -56,7 +56,7 @@ public class ImageUtil {
      * @param targetAddr 图片在Tomcat服务器下保存的相对路径地址
      * @return
      */
-    public static String generateThumbnail(InputStream thumbnailInputStream,String fileName, String targetAddr) throws IOException{
+    public static String generateThumbnail(InputStream thumbnailInputStream,String fileName, String targetAddr) {
         //1.获取随机生成的文件名，防止传递过来的文件重名
         String realFileName = getRandomFileName();
         //2.获取用户传递过来的文件扩展名
@@ -161,4 +161,25 @@ public class ImageUtil {
                         ,0.25f).outputQuality(0.8f).toFile("B:/aaa111.jpg");
     }
 
+    /**
+     * 删除图片的工具类
+     * storePath是文件的路径还是目录的路径
+     * 如果storePath是文件路径则删除该文件
+     * 如果storePath是目录路径则删除该目录下的所有文件
+     * @param storePath
+     */
+    public static  void deleteFileOrPath(String storePath){
+        File fileOrPath = new File(PathUtil.getImgBasePath()+storePath);
+        if(fileOrPath.exists()){
+            //是目录
+            if(fileOrPath.isDirectory()){
+                File files[] = fileOrPath.listFiles();
+                for(int i = 0;i<files.length;i++){
+                    files[i].delete();
+                }
+            }
+            //是文件
+            fileOrPath.delete();
+        }
+    }
 }

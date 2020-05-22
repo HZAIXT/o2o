@@ -24,7 +24,6 @@ public class ShopServiceImpl implements ShopService {
     @Autowired
     private ShopDao shopDao;
 
-
     /**
      * 店铺的注册方法
      * @param shop  店铺对象
@@ -92,12 +91,64 @@ public class ShopServiceImpl implements ShopService {
     }
 
     //添加图片
-    private void addShopImg(Shop shop,InputStream shopImgInputStream,String fileName) throws IOException {
+    private void addShopImg(Shop shop,InputStream shopImgInputStream,String fileName) {
         //获取shop图片目录的相对值路径
         String dest = PathUtil.getShopImagePath(shop.getShopId());
         //存储图片并返回相应的相对值路径
         String shopImgAddr = ImageUtil.generateThumbnail(shopImgInputStream,fileName,dest);
         //更改图片地址
         shop.setShopImg(shopImgAddr);
+    }
+
+    /**
+     * 根据店铺id获取店铺信息
+     * @param shopId
+     * @return
+     */
+    @Override
+    public Shop getByShopId(long shopId) {
+        return shopDao.queryByShopId(shopId);
+    }
+
+    /**
+     * 更新店铺信息，包括对图片的处理
+     * @param shop
+     * @param shopImgInputStream
+     * @param fileName
+     * @return
+     * @throws ShopOperationException
+     */
+    @Override
+    public ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException {
+        //1.判断是否需要处理图片
+        if(shop == null || shop.getShopId() == null){
+            return new ShopExecution(ShopSateEnum.NULL_SHOP);
+        }else {
+            try {
+                //1.判断是否需要处理图片,有输入流说明传入了新的图片就需要进行图片处理
+                if (shopImgInputStream != null && fileName != null && !"".equals(fileName)) {
+                    //根据shop对象获取shopId
+                    Shop tempShop = shopDao.queryByShopId(shop.getShopId());
+                    //判断图片地址是否为空，为空就将他删除
+                    if (tempShop.getShopImg() != null) {
+                        ImageUtil.deleteFileOrPath(tempShop.getShopImg());
+                    }
+                    //将新的图片更新回sql中去
+                    addShopImg(shop, shopImgInputStream, fileName);
+                }
+                //2.更新店铺信息
+                shop.setLastEditTime(new Date());
+                int effectedNum = shopDao.updateShop(shop);
+                if (effectedNum <= 0) {
+                    return new ShopExecution(ShopSateEnum.INNER_ERROR);
+                } else {
+                    shop = shopDao.queryByShopId(shop.getShopId());
+                    return new ShopExecution(ShopSateEnum.SUCCESS,shop);
+                }
+            }catch (Exception e){
+                throw new ShopOperationException("modifyShop error:" + e.getMessage());
+            }
+        }
+
     }
 }

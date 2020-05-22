@@ -1,3 +1,69 @@
 2020-05-22 10:14:52.703 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
 2020-05-22 10:14:52.767 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 1(Long)
 2020-05-22 10:14:52.901 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:20:42.711 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:20:42.773 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:20:42.815 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:20:42.823 [main] DEBUG com.zhou.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop\12\2020052211204293407.jpg
+2020-05-22 11:20:42.823 [main] DEBUG com.zhou.o2o.util.ImageUtil - current complete addr is:B:\projectdev\image\upload\item\shop\12\2020052211204293407.jpg
+2020-05-22 11:20:43.540 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2020-05-22 11:20:43.548 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺名称(String), upload\item\shop\12\2020052211204293407.jpg(String), 2020-05-22 11:20:43.508(Timestamp), 12(Long)
+2020-05-22 11:20:43.591 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2020-05-22 11:20:43.592 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:20:43.593 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:20:43.604 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:21:41.560 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:21:41.605 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:21:41.648 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:21:41.664 [main] DEBUG com.zhou.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop\12\2020052211214130668.jpg
+2020-05-22 11:21:41.665 [main] DEBUG com.zhou.o2o.util.ImageUtil - current complete addr is:B:\projectdev\image\upload\item\shop\12\2020052211214130668.jpg
+2020-05-22 11:21:41.867 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2020-05-22 11:21:41.869 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺名称(String), upload\item\shop\12\2020052211214130668.jpg(String), 2020-05-22 11:21:41.844(Timestamp), 12(Long)
+2020-05-22 11:21:42.016 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2020-05-22 11:21:42.018 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:21:42.019 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:21:42.026 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:23:48.128 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:23:48.185 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:23:48.226 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:23:48.239 [main] DEBUG com.zhou.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop\12\2020052211234837468.jpg
+2020-05-22 11:23:48.240 [main] DEBUG com.zhou.o2o.util.ImageUtil - current complete addr is:B:\projectdev\image\upload\item\shop\12\2020052211234837468.jpg
+2020-05-22 11:23:48.456 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2020-05-22 11:23:48.458 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺名称(String), upload\item\shop\12\2020052211234837468.jpg(String), 2020-05-22 11:23:48.433(Timestamp), 12(Long)
+2020-05-22 11:23:48.513 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2020-05-22 11:23:48.514 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:23:48.516 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:23:48.523 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:24:13.576 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:24:13.616 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:24:13.663 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:24:13.683 [main] DEBUG com.zhou.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop\12\2020052211241324137.jpg
+2020-05-22 11:24:13.683 [main] DEBUG com.zhou.o2o.util.ImageUtil - current complete addr is:B:\projectdev\image\upload\item\shop\12\2020052211241324137.jpg
+2020-05-22 11:24:13.929 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2020-05-22 11:24:13.931 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺名称(String), upload\item\shop\12\2020052211241324137.jpg(String), 2020-05-22 11:24:13.905(Timestamp), 12(Long)
+2020-05-22 11:24:13.987 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2020-05-22 11:24:13.988 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:24:13.990 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:24:13.997 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:27:05.270 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:27:05.315 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:27:05.356 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:27:05.371 [main] DEBUG com.zhou.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop\12\2020052211270593011.jpg
+2020-05-22 11:27:05.371 [main] DEBUG com.zhou.o2o.util.ImageUtil - current complete addr is:B:\projectdev\image\upload\item\shop\12\2020052211270593011.jpg
+2020-05-22 11:27:05.807 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2020-05-22 11:27:05.809 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺名称(String), upload\item\shop\12\2020052211270593011.jpg(String), 2020-05-22 11:27:05.785(Timestamp), 12(Long)
+2020-05-22 11:27:05.872 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2020-05-22 11:27:05.874 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:27:05.875 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:27:05.882 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:30:33.622 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:30:33.665 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:30:33.700 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2020-05-22 11:30:34.296 [main] DEBUG com.zhou.o2o.util.ImageUtil - current relativeAddr is:upload\item\shop\12\2020052211303450952.jpg
+2020-05-22 11:30:34.297 [main] DEBUG com.zhou.o2o.util.ImageUtil - current complete addr is:B:\projectdev\image\upload\item\shop\12\2020052211303450952.jpg
+2020-05-22 11:30:34.588 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id=? 
+2020-05-22 11:30:34.590 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺名称(String), upload\item\shop\12\2020052211303450952.jpg(String), 2020-05-22 11:30:34.565(Timestamp), 12(Long)
+2020-05-22 11:30:34.732 [main] DEBUG com.zhou.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2020-05-22 11:30:34.733 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 11:30:34.734 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 12(Long)
+2020-05-22 11:30:34.740 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
