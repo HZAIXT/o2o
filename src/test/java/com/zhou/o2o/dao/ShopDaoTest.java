@@ -64,6 +64,7 @@ public class ShopDaoTest extends BaseTest {
      * 店铺修改测试
      */
     @Test
+    @Ignore
     public void testUpdateShop(){
         //创建shop对象，设置想要修改的店铺id，并填充想要要修改的信息
         Shop shop = new Shop();
@@ -76,5 +77,16 @@ public class ShopDaoTest extends BaseTest {
         int effectedNum = shopDao.updateShop(shop);
         //使用断言判断是否成功添加
         assertEquals(1,effectedNum);
+    }
+
+    /**
+     * 店铺查询
+     */
+    @Test
+    public  void testQueryByShopId(){
+        long shopId = 1L;
+        Shop shop = shopDao.queryByShopId(shopId);
+        System.out.println("areaId" + shop.getArea().getAreaId());
+        System.out.println("areaName" + shop.getArea().getAreaName());
     }
 }

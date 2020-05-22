@@ -1,9 +1,3 @@
-2020-05-19 10:53:04.235 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC 
-2020-05-19 10:53:04.313 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
-2020-05-19 10:53:04.344 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1
-2020-05-19 10:57:26.299 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category ORDER BY priority DESC 
-2020-05-19 10:57:26.355 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
-2020-05-19 10:57:26.389 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
-2020-05-19 10:57:26.406 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT shop_category_id, shop_category_name, shop_category_desc, shop_category_img, priority, create_time, last_edit_time, parent_id FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC 
-2020-05-19 10:57:26.406 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
-2020-05-19 10:57:26.409 [main] DEBUG com.zhou.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1
+2020-05-22 10:14:52.703 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: SELECT s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name FROM tb_shop s, tb_area a, tb_shop_category sc WHERE s.area_id = a.area_id AND s.shop_category_id = sc.shop_category_id AND s.shop_id = ? 
+2020-05-22 10:14:52.767 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 1(Long)
+2020-05-22 10:14:52.901 [main] DEBUG com.zhou.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
