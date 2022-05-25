@@ -16,7 +16,7 @@
 
   <!-- 设置统一的版本号 -->
   <properties>
-    <spring.version>4.3.7.RELEASE</spring.version>
+    <spring.version>5.2.22.RELEASE</spring.version>
   </properties>
 
   <!--依赖根目录-->
